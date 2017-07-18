@@ -20,6 +20,7 @@ function draw(){
 
 initCanvas();
 initGrid();
+
 var a = [[3,2,1], [1,2,3]]; 
 var surf = new Surface(a, 1);
 var pascal = surf.pascal(3);

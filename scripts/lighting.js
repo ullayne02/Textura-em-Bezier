@@ -19,6 +19,7 @@ function Lighting (pl, ka, ia, kd, od, ks, il, n){
         
         var nl = n.scalarProduct(l);
         if(nl > 0) {
+            
             diffuse = new Vector(this.kd*this.od.x*this.il.x*nl, this.kd*this.od.y*this.il.y*nl, this.kd*this.od.z*this.il.z*nl);
         
             var r = n;

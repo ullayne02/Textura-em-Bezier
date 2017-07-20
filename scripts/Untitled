@@ -1,0 +1,30 @@
+        for(var i=0; i<this.pointsTriangle.length; i++){
+            var a = this.points[this.pointsTriangle[i][0]-1];
+            this.points[this.pointsTriangle[i][0]-1].normal = a.normal.normalize();
+            a.normal = a.normal.normalize(); 
+            
+            var b = this.points[this.pointsTriangle[i][1]-1];
+            this.points[this.pointsTriangle[i][1]-1].normal = b.normal.normalize();
+            b.normal = b.normal.normalize(); 
+            
+            var c = this.points[this.pointsTriangle[i][2]-1];            
+            this.points[this.pointsTriangle[i][2]-1].normal = c.normal.normalize();
+            c.normal = c.normal.normalize();
+            
+            triangle = new Triangle(a, b, c);
+            if(triangle.isTriangle()){
+                this.trianglesN.push(triangle);
+            }
+        }
+        
+        for(var i = 0;  i<this.triangles.length; i++){
+            var t = this.trianglesN[i]; 
+            var a = t.a;
+            var b = t.b; 
+            var c = t.c; 
+            a.normal = a.normal.normalize();
+            b.normal = b.normal.normalize();
+            c.normal = c.normal.normalize(); 
+            triangle = new Triangle(a, b, c); 
+            this.triangles.push(triangle);
+        }

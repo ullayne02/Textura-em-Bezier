@@ -11,7 +11,6 @@ function initZbuffer(){
 }
 
 function processTriangle (triangle){
-    console.log(triangle); 
     var p1 = triangle.a;
     var p2 = triangle.b; 
     var p3 = triangle.c; 
@@ -119,10 +118,14 @@ function scanline (y, xmin, xmax,p1, p2, p3){
             
             var n = new Vector(nx, ny, nz); 
             p3D.normal = n; 
-            
+            console.log(p3D); 
             var v = new Vector (-p3D.x, -p3D.y, -p3D.z); 
+            console.log(v);
             var lp = lighting.pl;
-            var l = new Vector(lp.x - p3D.x, lp.y - p3D.y, lp.z - p3D.z); 
+            console.log(lp);
+            var lp_cam = camera.changeCoord(lp); 
+            console.log(lp_cam); 
+            var l = new Vector(lp_cam.x - p3D.x, lp_cam.y - p3D.y, lp_cam.z - p3D.z); 
             
             n = n.normalize(); 
             v = v.normalize();

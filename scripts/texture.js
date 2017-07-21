@@ -27,7 +27,6 @@ function loadTexture(event){
 	            canvas.width = this.width;
 	            canvas.height = this.height;
 	            var context = canvas.getContext("2d");
-	            ctx.drawImage(this, 0, 0);
 	            context.drawImage(this, 0, 0);
 	            texture = new Texture(context, this.width, this.height);
             };

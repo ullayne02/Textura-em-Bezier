@@ -21,7 +21,7 @@ function Lighting (pl, ka, ia, kd, od, ks, il, n){
         if(nl > 0) {
             diffuse = new Vector(this.kd*this.od.x*this.il.x*nl, this.kd*this.od.y*this.il.y*nl, this.kd*this.od.z*this.il.z*nl);
         
-            var r = n;
+            var r = n.clone();
             r.x = 2*nl*n.x;
             r.y = 2*nl*n.y;
             r.z = 2*nl*n.z;
@@ -75,7 +75,6 @@ function loadLighting(event){
             var n = input[count++]; 
             
             lighting = new Lighting (pl, ka, ia, kd, od, ks, il, n);
-            console.log("  = = = = = == ");
         };
     })(file);
     reader.readAsText(file);

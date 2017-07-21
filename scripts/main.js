@@ -72,19 +72,16 @@ function draw(){
 function changeDimension (triangles){
 	triangles2D = [];
 	for(var i = 0; i<triangles.length; i++){
-		
 		var aux = triangles[i];
 		var a = aux.a;
 		var b = aux.b;
-		var c = aux.c; 
-		
+		var c = aux.c;
 		var a2D = camera.projectize(a); 
 		var b2D = camera.projectize(b);
 		var c2D = camera.projectize(c); 
 		var triangle = new Triangle2D(a2D, b2D, c2D); 
 		triangle.sort();
-		triangles2D.push(triangle); 
-		
+		triangles2D.push(triangle);
 	}
 }
 

@@ -110,7 +110,7 @@ function scanline (y, xmin, xmax,p1, p2, p3){
         a = Math.floor(x); 
         b = Math.floor(y); 
         if(zbuffer[a][b] > p3D.z){
-            zbuffer[a][b] = p3D.z; 
+            zbuffer[a][b] = p3D.z;
             
             var nx = triangle.a.normal.x*bar[0] + triangle.b.normal.x*bar[1] + triangle.c.normal.x*bar[2];
             var ny = triangle.a.normal.y*bar[0] + triangle.b.normal.y*bar[1] + triangle.c.normal.y*bar[2];
@@ -118,6 +118,7 @@ function scanline (y, xmin, xmax,p1, p2, p3){
             
             var n = new Vector(nx, ny, nz); 
             p3D.normal = n; 
+<<<<<<< HEAD
             //console.log(p3D); 
             var v = new Vector (-p3D.x, -p3D.y, -p3D.z); 
             //console.log(v);
@@ -125,6 +126,12 @@ function scanline (y, xmin, xmax,p1, p2, p3){
             var lp_cam = camera.changeCoord(lighting.pl); 
             //console.log(lp_cam); 
             var l = new Vector(lp_cam.x - p3D.x, lp_cam.y - p3D.y, lp_cam.z - p3D.z); 
+=======
+            
+            var v = new Vector(-p3D.x, -p3D.y, -p3D.z); 
+            var lp = camera.changeCoord(lighting.pl);
+            var l = new Vector(lp.x - p3D.x, lp.y - p3D.y, lp.z - p3D.z); 
+>>>>>>> 5539652ab1ea380a9f6b7c64611f1a2cb7ee2d38
             
             n = n.normalize(); 
             v = v.normalize();
@@ -141,10 +148,9 @@ function scanline (y, xmin, xmax,p1, p2, p3){
             } else {
                 lighting.ia = lighting.backupIA;
             }
+            
             var color = lighting.phong(n, v, l);
             paint(x, y, color); 
         }
-        
     }
-   
 }
